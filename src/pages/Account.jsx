@@ -1,4 +1,5 @@
-import { Box, Heading, Text, Button, FormControl, FormLabel, Input, VStack, Table, Thead, Tbody, Tr, Th, Td } from "@chakra-ui/react";
+import { Box, Heading, Text, Button, FormControl, FormLabel, Input, VStack, Table, Thead, Tbody, Tr, Th, Td, Divider } from "@chakra-ui/react";
+import PortfolioChart from "../components/PortfolioChart.jsx";
 import { useState } from "react";
 
 function Account() {
@@ -56,7 +57,8 @@ function Account() {
           Withdraw
         </Button>
       </VStack>
-      <Heading size="md" mt={8} mb={4}>
+      <Divider my={8} />
+      <Heading size="md" mb={4}>
         Transaction History
       </Heading>
       <Table variant="simple">
@@ -75,6 +77,11 @@ function Account() {
           ))}
         </Tbody>
       </Table>
+      <Divider my={8} />
+      <Heading size="md" mb={4}>
+        Portfolio Performance
+      </Heading>
+      <PortfolioChart />
     </Box>
   );
 }
