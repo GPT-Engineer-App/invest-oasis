@@ -50,6 +50,11 @@ function Navigation() {
             Fund Account
           </Button>
         </Link>
+        <Link to="/account-dashboard">
+          <Button colorScheme="teal" variant="ghost">
+            Account Details
+          </Button>
+        </Link>
       </Flex>
     </Box>
   );
