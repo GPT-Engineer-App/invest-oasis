@@ -52,6 +52,11 @@ function Navigation() {
         </Link>
         <Link to="/account-dashboard">
           <Button colorScheme="teal" variant="ghost">
+            Account Dashboard
+          </Button>
+        </Link>
+        <Link to="/account-dashboard">
+          <Button colorScheme="teal" variant="ghost">
             Account Details
           </Button>
         </Link>

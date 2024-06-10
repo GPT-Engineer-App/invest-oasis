@@ -6,6 +6,7 @@ import Investments from "./pages/Investments.jsx";
 import Portfolio from "./pages/Portfolio.jsx";
 import Navigation from "./components/Navigation.jsx";
 import Register from "./pages/Register.jsx";
+import AccountDashboard from "./pages/AccountDashboard.jsx";
 import ContactUs from "./pages/ContactUs.jsx";
 import MFASetup from "./pages/MFASetup.jsx";
 import MFAVerification from "./pages/MFAVerification.jsx";
@@ -27,6 +28,8 @@ function App() {
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/open-account" element={<OpenAccount />} />
         <Route path="/fund-account" element={<FundAccount />} />
+        <Route path="/account-dashboard" element={<AccountDashboard />} />
+        <Route path="/account-dashboard" element={<AccountDashboard />} />
       </Routes>
     </Router>
   );
