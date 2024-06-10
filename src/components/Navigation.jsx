@@ -1,30 +1,49 @@
-import { Box, Flex, Link } from "@chakra-ui/react";
-import { Link as RouterLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { Box, Flex, Button } from "@chakra-ui/react";
 
 function Navigation() {
   return (
     <Box bg="teal.500" p={4}>
-      <Flex justify="space-around">
-        <Link as={RouterLink} to="/" color="white">
-          Home
+      <Flex justify="space-between">
+        <Link to="/">
+          <Button colorScheme="teal" variant="ghost">
+            Home
+          </Button>
         </Link>
-        <Link as={RouterLink} to="/login" color="white">
-          Login
+        <Link to="/login">
+          <Button colorScheme="teal" variant="ghost">
+            Login
+          </Button>
         </Link>
-        <Link as={RouterLink} to="/account" color="white">
-          Account
+        <Link to="/account">
+          <Button colorScheme="teal" variant="ghost">
+            Account
+          </Button>
         </Link>
-        <Link as={RouterLink} to="/investments" color="white">
-          Investments
+        <Link to="/investments">
+          <Button colorScheme="teal" variant="ghost">
+            Investments
+          </Button>
         </Link>
-        <Link as={RouterLink} to="/portfolio" color="white">
-          Portfolio
+        <Link to="/portfolio">
+          <Button colorScheme="teal" variant="ghost">
+            Portfolio
+          </Button>
         </Link>
-        <Link as={RouterLink} to="/register" color="white">
-          Register
+        <Link to="/register">
+          <Button colorScheme="teal" variant="ghost">
+            Register
+          </Button>
         </Link>
-        <Link as={RouterLink} to="/contact" color="white">
-          Contact Us
+        <Link to="/contact">
+          <Button colorScheme="teal" variant="ghost">
+            Contact
+          </Button>
+        </Link>
+        <Link to="/mfa-setup">
+          <Button colorScheme="teal" variant="ghost">
+            MFA Setup
+          </Button>
         </Link>
       </Flex>
     </Box>

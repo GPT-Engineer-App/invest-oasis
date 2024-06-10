@@ -4,7 +4,9 @@ import { useState } from "react";
 function MFAVerification() {
   const [code, setCode] = useState("");
 
-  const handleSubmit = () => {};
+  const handleSubmit = () => {
+    console.log("MFA code entered:", code);
+  };
 
   return (
     <Box p={4}>
