@@ -9,6 +9,13 @@ const OpenAccount = () => {
     balance: "",
     secondaryHolder: "",
     retirementAge: "",
+    name: "",
+    address: "",
+    dateOfBirth: "",
+    ssn: "",
+    email: "",
+    phone: "",
+    tin: "",
   });
 
   const handleChange = (e) => {
@@ -66,6 +73,41 @@ const OpenAccount = () => {
             <Input name="retirementAge" value={formData.retirementAge} onChange={handleChange} />
           </FormControl>
         )}
+
+        <FormControl id="name" mb={4} isRequired>
+          <FormLabel>Name</FormLabel>
+          <Input name="name" value={formData.name} onChange={handleChange} />
+        </FormControl>
+
+        <FormControl id="address" mb={4} isRequired>
+          <FormLabel>Address</FormLabel>
+          <Input name="address" value={formData.address} onChange={handleChange} />
+        </FormControl>
+
+        <FormControl id="dateOfBirth" mb={4} isRequired>
+          <FormLabel>Date of Birth</FormLabel>
+          <Input name="dateOfBirth" value={formData.dateOfBirth} onChange={handleChange} />
+        </FormControl>
+
+        <FormControl id="ssn" mb={4} isRequired>
+          <FormLabel>Social Security Number</FormLabel>
+          <Input name="ssn" value={formData.ssn} onChange={handleChange} />
+        </FormControl>
+
+        <FormControl id="email" mb={4} isRequired>
+          <FormLabel>Email</FormLabel>
+          <Input name="email" value={formData.email} onChange={handleChange} />
+        </FormControl>
+
+        <FormControl id="phone" mb={4} isRequired>
+          <FormLabel>Phone Number</FormLabel>
+          <Input name="phone" value={formData.phone} onChange={handleChange} />
+        </FormControl>
+
+        <FormControl id="tin" mb={4} isRequired>
+          <FormLabel>Taxpayer Identification Number (TIN)</FormLabel>
+          <Input name="tin" value={formData.tin} onChange={handleChange} />
+        </FormControl>
 
         <Button type="submit" colorScheme="teal">
           Start Application
