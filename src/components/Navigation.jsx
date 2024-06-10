@@ -15,9 +15,9 @@ function Navigation() {
             Login
           </Button>
         </Link>
-        <Link to="/account">
+        <Link to="/account-dashboard">
           <Button colorScheme="teal" variant="ghost">
-            Account
+            Account Dashboard
           </Button>
         </Link>
         <Link to="/investments">

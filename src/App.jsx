@@ -20,7 +20,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Index />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/account" element={<AccountDashboard />} />
+        <Route path="/account-dashboard" element={<AccountDashboard />} />
         <Route path="/mfa-verification" element={<MFAVerification />} />
         <Route path="/investments" element={<Investments />} />
         <Route path="/portfolio" element={<Portfolio />} />
