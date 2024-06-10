@@ -1,7 +1,7 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Index from "./pages/Index.jsx";
 import Login from "./pages/Login.jsx";
-import Account from "./pages/Account.jsx";
+import AccountDashboard from "./pages/AccountDashboard.jsx";
 import Investments from "./pages/Investments.jsx";
 import Portfolio from "./pages/Portfolio.jsx";
 import Navigation from "./components/Navigation.jsx";
@@ -20,7 +20,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Index />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/account" element={<Account />} />
+        <Route path="/account" element={<AccountDashboard />} />
         <Route path="/mfa-verification" element={<MFAVerification />} />
         <Route path="/investments" element={<Investments />} />
         <Route path="/portfolio" element={<Portfolio />} />
