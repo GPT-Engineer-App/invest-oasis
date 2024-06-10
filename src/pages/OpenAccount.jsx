@@ -31,7 +31,11 @@ const OpenAccount = () => {
   const validate = () => {
     let errors = {};
     if (!formData.accountNumber) errors.accountNumber = "Account Number is required";
-    if (!formData.balance) errors.balance = "Initial Balance is required";
+    if (!formData.balance) {
+      errors.balance = "Initial Balance is required";
+    } else if (parseFloat(formData.balance) < 100000) {
+      errors.balance = "Initial Balance must be at least $100,000";
+    }
     if (accountType === "joint" && !formData.secondaryHolder) errors.secondaryHolder = "Secondary Holder is required";
     if (accountType === "retirement" && !formData.retirementAge) errors.retirementAge = "Retirement Age is required";
     if (!formData.name) errors.name = "Name is required";
@@ -84,6 +88,9 @@ const OpenAccount = () => {
           <Input name="accountNumber" value={formData.accountNumber} onChange={handleChange} />
         </FormControl>
 
+        <Text mb={4} color="red.500">
+          Minimum deposit requirement for each account type is $100,000
+        </Text>
         <FormControl id="balance" mb={4} isRequired>
           <FormLabel>Initial Balance</FormLabel>
           <Input name="balance" value={formData.balance} onChange={handleChange} />
