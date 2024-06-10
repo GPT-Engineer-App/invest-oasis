@@ -50,11 +50,6 @@ function Navigation() {
             Fund Account
           </Button>
         </Link>
-        <Link to="/fund-account">
-          <Button colorScheme="teal" variant="ghost">
-            Fund Account
-          </Button>
-        </Link>
       </Flex>
     </Box>
   );
