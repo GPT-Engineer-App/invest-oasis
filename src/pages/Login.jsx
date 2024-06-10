@@ -76,8 +76,7 @@ function Login() {
               </Button>
             </InputRightElement>
           </InputGroup>
-          <FormLabel>Password</FormLabel>
-          <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+
           <FormErrorMessage>{errors.password}</FormErrorMessage>
         </FormControl>
         <Button mt={4} colorScheme="teal" type="submit">

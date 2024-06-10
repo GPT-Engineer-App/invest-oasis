@@ -50,8 +50,6 @@ const Register = () => {
               </Button>
             </InputRightElement>
           </InputGroup>
-          <FormLabel>Password</FormLabel>
-          <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
         </FormControl>
         <Button type="submit" colorScheme="teal" width="full">
           Register
