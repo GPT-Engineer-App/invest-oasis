@@ -1,4 +1,4 @@
-import { Box, Heading, Text, Button, FormControl, FormLabel, Input, VStack, Table, Thead, Tbody, Tr, Th, Td, Divider } from "@chakra-ui/react";
+import { Box, Heading, Text, Button, FormControl, FormLabel, Input, VStack, Table, Thead, Tbody, Tr, Th, Td, Divider, Select } from "@chakra-ui/react";
 import PortfolioChart from "../components/PortfolioChart.jsx";
 import { useState } from "react";
 
@@ -10,7 +10,19 @@ function AccountDashboard() {
   const [amount, setAmount] = useState("");
   const [transactionHistory, setTransactionHistory] = useState([]);
 
-  const handleDeposit = () => {
+  const [depositMethod, setDepositMethod] = useState("");
+
+  const handleDeposit = async () => {
+    if (!depositMethod) {
+      alert("Please select a deposit method");
+      return;
+    }
+
+    const paymentSuccess = await processPayment(amount, depositMethod);
+    if (!paymentSuccess) {
+      alert("Payment failed. Please try again.");
+      return;
+    }
     const newBalance = balance + parseFloat(amount);
     setBalance(newBalance);
     setAvailableCash(availableCash + parseFloat(amount));
@@ -28,6 +40,14 @@ function AccountDashboard() {
     } else {
       alert("Insufficient funds");
     }
+  };
+
+  const processPayment = async (amount, method) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(true);
+      }, 2000);
+    });
   };
 
   return (
