@@ -70,7 +70,14 @@ function AccountDashboard() {
           <FormLabel>Amount</FormLabel>
           <Input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="Enter amount" />
         </FormControl>
-        <Button colorScheme="teal" onClick={handleDeposit}>
+        <FormControl id="deposit-method" mt={4}>
+          <FormLabel>Deposit Method</FormLabel>
+          <Select placeholder="Select method" value={depositMethod} onChange={(e) => setDepositMethod(e.target.value)}>
+            <option value="bank-transfer">Bank Transfer</option>
+            <option value="debit-credit-card">Debit/Credit Card</option>
+          </Select>
+        </FormControl>
+        <Button colorScheme="teal" mt={4} onClick={handleDeposit}>
           Deposit
         </Button>
         <Button colorScheme="red" onClick={handleWithdraw}>
