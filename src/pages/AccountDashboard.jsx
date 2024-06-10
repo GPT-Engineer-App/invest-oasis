@@ -1,4 +1,4 @@
-import { Box, Heading, Text, VStack } from "@chakra-ui/react";
+import { Box, Heading, Text, VStack, Table, Thead, Tbody, Tr, Th, Td } from "@chakra-ui/react";
 import { useState } from "react";
 
 function AccountDashboard() {
@@ -6,6 +6,10 @@ function AccountDashboard() {
   const [accountNumber, setAccountNumber] = useState("123456789");
   const [balance, setBalance] = useState(100000);
   const [availableCash, setAvailableCash] = useState(50000);
+  const [transactionHistory, setTransactionHistory] = useState([
+    { type: "Deposit", amount: 5000 },
+    { type: "Withdraw", amount: 2000 },
+  ]);
 
   return (
     <Box p={4}>
@@ -16,6 +20,25 @@ function AccountDashboard() {
         <Text fontSize="xl">Balance: ${balance.toFixed(2)}</Text>
         <Text fontSize="xl">Available Cash: ${availableCash.toFixed(2)}</Text>
       </VStack>
+      <Heading size="md" mt={8} mb={4}>
+        Transaction History
+      </Heading>
+      <Table variant="simple">
+        <Thead>
+          <Tr>
+            <Th>Type</Th>
+            <Th>Amount</Th>
+          </Tr>
+        </Thead>
+        <Tbody>
+          {transactionHistory.map((transaction, index) => (
+            <Tr key={index}>
+              <Td>{transaction.type}</Td>
+              <Td>${transaction.amount.toFixed(2)}</Td>
+            </Tr>
+          ))}
+        </Tbody>
+      </Table>
     </Box>
   );
 }
