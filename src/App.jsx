@@ -7,6 +7,7 @@ import Portfolio from "./pages/Portfolio.jsx";
 import Navigation from "./components/Navigation.jsx";
 import Register from "./pages/Register.jsx";
 import ContactUs from "./pages/ContactUs.jsx";
+import MFAVerification from "./pages/MFAVerification.jsx";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route exact path="/" element={<Index />} />
         <Route path="/login" element={<Login />} />
         <Route path="/account" element={<Account />} />
+        <Route path="/mfa-verification" element={<MFAVerification />} />
         <Route path="/investments" element={<Investments />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/register" element={<Register />} />
