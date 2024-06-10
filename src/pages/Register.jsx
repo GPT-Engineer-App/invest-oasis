@@ -20,6 +20,14 @@ const Register = () => {
     const encryptedToken = CryptoJS.AES.encrypt(token, "secret-key").toString();
     localStorage.setItem("token", encryptedToken);
 
+    const loginCredentials = {
+      username: username,
+      password: password,
+    };
+
+    console.log("Login Credentials:", loginCredentials);
+    alert(`Your account has been created. \nUsername: ${username} \nPassword: ${password}`);
+
     navigate("/account");
   };
 
