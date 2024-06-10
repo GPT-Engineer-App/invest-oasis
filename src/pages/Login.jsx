@@ -3,19 +3,16 @@ import bcrypt from "bcryptjs";
 import { useState } from "react";
 
 function Login() {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState({ email: "", password: "" });
+  const [errors, setErrors] = useState({ username: "", password: "" });
 
   const validate = () => {
     let valid = true;
-    let errors = { email: "", password: "" };
+    let errors = { username: "", password: "" };
 
-    if (!email) {
-      errors.email = "Email is required";
-      valid = false;
-    } else if (!/\S+@\S+\.\S+/.test(email)) {
-      errors.email = "Email is invalid";
+    if (!username) {
+      errors.username = "Username is required";
       valid = false;
     }
 
@@ -41,10 +38,10 @@ function Login() {
     <Box>
       <Heading>Login Page</Heading>
       <form onSubmit={handleSubmit}>
-        <FormControl isInvalid={errors.email}>
-          <FormLabel>Email</FormLabel>
-          <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-          <FormErrorMessage>{errors.email}</FormErrorMessage>
+        <FormControl isInvalid={errors.username}>
+          <FormLabel>Username</FormLabel>
+          <Input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+          <FormErrorMessage>{errors.username}</FormErrorMessage>
         </FormControl>
         <FormControl isInvalid={errors.password} mt={4}>
           <FormLabel>Password</FormLabel>
