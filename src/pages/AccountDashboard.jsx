@@ -11,23 +11,10 @@ function AccountDashboard() {
   const [transactionHistory, setTransactionHistory] = useState([]);
 
   const [depositMethod, setDepositMethod] = useState("");
+  const [showPaymentForm, setShowPaymentForm] = useState(false);
 
   const handleDeposit = async () => {
-    if (!depositMethod) {
-      alert("Please select a deposit method");
-      return;
-    }
-
-    const paymentSuccess = await processPayment(amount, depositMethod);
-    if (!paymentSuccess) {
-      alert("Payment failed. Please try again.");
-      return;
-    }
-    const newBalance = balance + parseFloat(amount);
-    setBalance(newBalance);
-    setAvailableCash(availableCash + parseFloat(amount));
-    setTransactionHistory([...transactionHistory, { type: "Deposit", amount: parseFloat(amount) }]);
-    setAmount("");
+    setShowPaymentForm(true);
   };
 
   const handleWithdraw = () => {
@@ -77,9 +64,25 @@ function AccountDashboard() {
             <option value="debit-credit-card">Debit/Credit Card</option>
           </Select>
         </FormControl>
-        <Button colorScheme="teal" mt={4} onClick={handleDeposit}>
-          Deposit
-        </Button>
+        {!showPaymentForm && (
+          <Button colorScheme="teal" mt={4} onClick={handleDeposit}>
+            Deposit
+          </Button>
+        )}
+        {showPaymentForm && (
+          <>
+            <FormControl id="deposit-method" mt={4}>
+              <FormLabel>Deposit Method</FormLabel>
+              <Select placeholder="Select method" value={depositMethod} onChange={(e) => setDepositMethod(e.target.value)}>
+                <option value="bank-transfer">Bank Transfer</option>
+                <option value="debit-credit-card">Debit/Credit Card</option>
+              </Select>
+            </FormControl>
+            <Button colorScheme="teal" mt={4} onClick={handleDeposit}>
+              Confirm Deposit
+            </Button>
+          </>
+        )}
         <Button colorScheme="red" onClick={handleWithdraw}>
           Withdraw
         </Button>
