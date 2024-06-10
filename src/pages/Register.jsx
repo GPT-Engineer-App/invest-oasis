@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import bcrypt from "bcryptjs";
 import { Box, Button, Input, FormControl, FormLabel, Heading } from "@chakra-ui/react";
+import CryptoJS from "crypto-js";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -16,7 +17,8 @@ const Register = () => {
     console.log("Hashed Password:", hashedPassword);
     // Simulate API call
     const token = "fake-jwt-token";
-    localStorage.setItem("token", token);
+    const encryptedToken = CryptoJS.AES.encrypt(token, "secret-key").toString();
+    localStorage.setItem("token", encryptedToken);
 
     navigate("/account");
   };

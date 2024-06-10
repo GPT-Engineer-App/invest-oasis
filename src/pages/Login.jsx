@@ -1,6 +1,7 @@
 import { Box, Heading, FormControl, FormLabel, Input, Button, FormErrorMessage } from "@chakra-ui/react";
 import bcrypt from "bcryptjs";
 import { useState } from "react";
+import CryptoJS from "crypto-js";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -42,7 +43,8 @@ function Login() {
 
         if (isMatch) {
           const token = "fake-jwt-token";
-          localStorage.setItem("token", token);
+          const encryptedToken = CryptoJS.AES.encrypt(token, "secret-key").toString();
+          localStorage.setItem("token", encryptedToken);
           window.location.href = "/account";
         } else {
           setErrors((prevErrors) => ({
