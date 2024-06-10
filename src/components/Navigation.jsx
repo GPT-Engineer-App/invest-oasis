@@ -23,6 +23,9 @@ function Navigation() {
         <Link as={RouterLink} to="/register" color="white">
           Register
         </Link>
+        <Link as={RouterLink} to="/contact" color="white">
+          Contact Us
+        </Link>
       </Flex>
     </Box>
   );

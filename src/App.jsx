@@ -6,6 +6,7 @@ import Investments from "./pages/Investments.jsx";
 import Portfolio from "./pages/Portfolio.jsx";
 import Navigation from "./components/Navigation.jsx";
 import Register from "./pages/Register.jsx";
+import ContactUs from "./pages/ContactUs.jsx";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/investments" element={<Investments />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/contact" element={<ContactUs />} />
       </Routes>
     </Router>
   );
