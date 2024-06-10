@@ -5,6 +5,7 @@ import Account from "./pages/Account.jsx";
 import Investments from "./pages/Investments.jsx";
 import Portfolio from "./pages/Portfolio.jsx";
 import Navigation from "./components/Navigation.jsx";
+import Register from "./pages/Register.jsx";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/account" element={<Account />} />
         <Route path="/investments" element={<Investments />} />
         <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </Router>
   );

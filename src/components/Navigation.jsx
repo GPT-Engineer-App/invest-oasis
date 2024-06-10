@@ -20,6 +20,9 @@ function Navigation() {
         <Link as={RouterLink} to="/portfolio" color="white">
           Portfolio
         </Link>
+        <Link as={RouterLink} to="/register" color="white">
+          Register
+        </Link>
       </Flex>
     </Box>
   );
