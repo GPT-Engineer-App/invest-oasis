@@ -31,6 +31,10 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
+      const token = "fake-jwt-token";
+      localStorage.setItem("token", token);
+
+      window.location.href = "/account";
     }
   };
 

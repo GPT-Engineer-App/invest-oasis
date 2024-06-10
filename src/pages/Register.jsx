@@ -14,7 +14,11 @@ const Register = () => {
 
     console.log("Username:", username);
     console.log("Hashed Password:", hashedPassword);
-    navigate("/login");
+    // Simulate API call
+    const token = "fake-jwt-token";
+    localStorage.setItem("token", token);
+
+    navigate("/account");
   };
 
   return (
