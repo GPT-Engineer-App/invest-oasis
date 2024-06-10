@@ -26,10 +26,39 @@ const OpenAccount = () => {
     }));
   };
 
+  const [errors, setErrors] = useState({});
+
+  const validate = () => {
+    let errors = {};
+    if (!formData.accountNumber) errors.accountNumber = "Account Number is required";
+    if (!formData.balance) errors.balance = "Initial Balance is required";
+    if (accountType === "joint" && !formData.secondaryHolder) errors.secondaryHolder = "Secondary Holder is required";
+    if (accountType === "retirement" && !formData.retirementAge) errors.retirementAge = "Retirement Age is required";
+    if (!formData.name) errors.name = "Name is required";
+    if (!formData.address) errors.address = "Address is required";
+    if (!formData.dateOfBirth) errors.dateOfBirth = "Date of Birth is required";
+    if (!formData.ssn) errors.ssn = "Social Security Number is required";
+    if (!formData.email) {
+      errors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      errors.email = "Email is invalid";
+    }
+    if (!formData.phone) {
+      errors.phone = "Phone Number is required";
+    } else if (!/^\d{10}$/.test(formData.phone)) {
+      errors.phone = "Phone Number is invalid";
+    }
+    if (!formData.tin) errors.tin = "Taxpayer Identification Number (TIN) is required";
+    setErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Account Type:", accountType);
-    console.log("Form Data:", formData);
+    if (validate()) {
+      console.log("Account Type:", accountType);
+      console.log("Form Data:", formData);
+    }
   };
 
   return (
