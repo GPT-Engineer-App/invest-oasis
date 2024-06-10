@@ -23,7 +23,6 @@ function App() {
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/register" element={<Register />} />
         <Route path="/contact" element={<ContactUs />} />
-        <Route path="/mfa-setup" element={<MFASetup />} />
       </Routes>
     </Router>
   );

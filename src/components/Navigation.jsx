@@ -40,11 +40,6 @@ function Navigation() {
             Contact
           </Button>
         </Link>
-        <Link to="/mfa-setup">
-          <Button colorScheme="teal" variant="ghost">
-            MFA Setup
-          </Button>
-        </Link>
       </Flex>
     </Box>
   );
