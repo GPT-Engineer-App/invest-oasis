@@ -1,4 +1,4 @@
-import { Box, Heading, Text, VStack, Table, Thead, Tbody, Tr, Th, Td } from "@chakra-ui/react";
+import { Box, Heading, Text, VStack, Table, Thead, Tbody, Tr, Th, Td, FormControl, FormLabel, Input, Button } from "@chakra-ui/react";
 import { useState } from "react";
 
 function AccountDashboard() {
