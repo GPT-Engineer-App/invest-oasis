@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Container, VStack, HStack, Text, Box, Button, IconButton, Input, useDisclosure, Drawer, DrawerBody, DrawerFooter, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton } from "@chakra-ui/react";
-import { FaHome, FaChartLine, FaSearch, FaUser, FaBars } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
+import Navigation from "../components/Navigation.jsx";
 
 const Index = () => {
   const [currentPage, setCurrentPage] = useState("home");
@@ -26,12 +27,7 @@ const Index = () => {
       <HStack justifyContent="space-between" mb={4}>
         <IconButton aria-label="Menu" icon={<FaBars />} onClick={onOpen} />
         <Text fontSize="2xl">Investment Platform</Text>
-        <HStack spacing={4}>
-          <IconButton aria-label="Home" icon={<FaHome />} onClick={() => setCurrentPage("home")} />
-          <IconButton aria-label="Portfolio" icon={<FaChartLine />} onClick={() => setCurrentPage("portfolio")} />
-          <IconButton aria-label="Search" icon={<FaSearch />} onClick={() => setCurrentPage("search")} />
-          <IconButton aria-label="Profile" icon={<FaUser />} onClick={() => setCurrentPage("profile")} />
-        </HStack>
+        <Navigation />
       </HStack>
       <Box p={4} borderWidth={1} borderRadius="lg" boxShadow="lg">
         {renderContent()}
