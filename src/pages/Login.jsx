@@ -1,4 +1,4 @@
-import { Box, Heading, FormControl, FormLabel, Input, Button, FormErrorMessage } from "@chakra-ui/react";
+import { Box, Heading, FormControl, FormLabel, Input, Button, FormErrorMessage, InputGroup, InputRightElement } from "@chakra-ui/react";
 import bcrypt from "bcryptjs";
 import { useState } from "react";
 import CryptoJS from "crypto-js";
@@ -7,6 +7,7 @@ function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({ username: "", password: "" });
+  const [showPassword, setShowPassword] = useState(false);
 
   const validate = () => {
     let valid = true;
@@ -66,6 +67,15 @@ function Login() {
           <FormErrorMessage>{errors.username}</FormErrorMessage>
         </FormControl>
         <FormControl isInvalid={errors.password} mt={4}>
+          <FormLabel>Password</FormLabel>
+          <InputGroup>
+            <Input type={showPassword ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)} />
+            <InputRightElement width="4.5rem">
+              <Button h="1.75rem" size="sm" onClick={() => setShowPassword(!showPassword)}>
+                {showPassword ? "Hide" : "Show"}
+              </Button>
+            </InputRightElement>
+          </InputGroup>
           <FormLabel>Password</FormLabel>
           <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
           <FormErrorMessage>{errors.password}</FormErrorMessage>

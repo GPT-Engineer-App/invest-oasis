@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import bcrypt from "bcryptjs";
-import { Box, Button, Input, FormControl, FormLabel, Heading } from "@chakra-ui/react";
+import { Box, Button, Input, FormControl, FormLabel, Heading, InputGroup, InputRightElement } from "@chakra-ui/react";
 import CryptoJS from "crypto-js";
 
 const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -40,6 +41,15 @@ const Register = () => {
           <Input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
         </FormControl>
         <FormControl id="password" mb={4}>
+          <FormLabel>Password</FormLabel>
+          <InputGroup>
+            <Input type={showPassword ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)} required />
+            <InputRightElement width="4.5rem">
+              <Button h="1.75rem" size="sm" onClick={() => setShowPassword(!showPassword)}>
+                {showPassword ? "Hide" : "Show"}
+              </Button>
+            </InputRightElement>
+          </InputGroup>
           <FormLabel>Password</FormLabel>
           <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
         </FormControl>
