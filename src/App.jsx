@@ -9,6 +9,7 @@ import Register from "./pages/Register.jsx";
 import ContactUs from "./pages/ContactUs.jsx";
 import MFASetup from "./pages/MFASetup.jsx";
 import MFAVerification from "./pages/MFAVerification.jsx";
+import OpenAccount from "./pages/OpenAccount.jsx";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/register" element={<Register />} />
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/open-account" element={<OpenAccount />} />
       </Routes>
     </Router>
   );

@@ -40,6 +40,11 @@ function Navigation() {
             Contact
           </Button>
         </Link>
+        <Link to="/open-account">
+          <Button colorScheme="teal" variant="ghost">
+            Open Account
+          </Button>
+        </Link>
       </Flex>
     </Box>
   );
