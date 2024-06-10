@@ -31,10 +31,26 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
-      const token = "fake-jwt-token";
-      localStorage.setItem("token", token);
+      // Simulate fetching hashed password from database
+      const storedHashedPassword = "$2a$10$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36Z7zQ4u8z5K9yK1e1F1e1K";
 
-      window.location.href = "/account";
+      bcrypt.compare(password, storedHashedPassword, (err, isMatch) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+
+        if (isMatch) {
+          const token = "fake-jwt-token";
+          localStorage.setItem("token", token);
+          window.location.href = "/account";
+        } else {
+          setErrors((prevErrors) => ({
+            ...prevErrors,
+            password: "Invalid password",
+          }));
+        }
+      });
     }
   };
 
