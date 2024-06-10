@@ -57,16 +57,29 @@ const OpenAccount = () => {
     return Object.keys(errors).length === 0;
   };
 
+  const [confirmationMessage, setConfirmationMessage] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
       console.log("Account Type:", accountType);
       console.log("Form Data:", formData);
+      setConfirmationMessage("Your account has been successfully opened.");
     }
   };
 
   return (
     <Box p={5}>
+      {confirmationMessage && (
+        <Box mb={4} p={4} bg="green.100" borderRadius="md">
+          <Text>{confirmationMessage}</Text>
+        </Box>
+      )}
+      {confirmationMessage && (
+        <Box mb={4} p={4} bg="green.100" borderRadius="md">
+          <Text>{confirmationMessage}</Text>
+        </Box>
+      )}
       <Heading as="h1" size="xl" mb={5}>
         Open a New Account
       </Heading>
